@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:descendantFocusability="blocksDescendants">
+
+	<ImageView
+	    android:id="@+id/vthumb"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:paddingLeft="10dp"/>
+	    
+    <TextView android:id="@+id/vtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:textColor="#f0f"
+        android:paddingLeft="10dp"
+		android:layout_toRightOf="@id/vthumb"/>
+    
+    <TextView android:id="@+id/vowner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000"
+        android:layout_below="@id/vtitle"/>
+    
+    <TextView android:id="@+id/vduration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000"
+        android:layout_alignBottom="@id/vthumb"
+        android:layout_alignRight="@id/vthumb" />
+    
+    <TextView android:id="@+id/view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14dp"
+        android:paddingLeft="10dp"
+        android:textColor="#000"
+        android:layout_below="@id/vowner"/>
+
+    
+</RelativeLayout>

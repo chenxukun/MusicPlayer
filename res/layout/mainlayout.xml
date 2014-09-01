@@ -1,0 +1,30 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="xukun.augest16.MainActivity"
+    tools:ignore="MergeRootFrame">
+    
+
+        <FrameLayout
+		android:id="@+id/menuContainer"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:background="#666666"/>
+        
+    	<FrameLayout
+		android:id="@+id/listContainer"
+		android:layout_width="match_parent"
+		android:layout_height="380dp"
+		android:layout_below="@id/menuContainer"
+		android:background="#66b2ff"/>
+    	
+    	<FrameLayout
+		android:id="@+id/playContainer"
+		android:layout_width="match_parent"
+		android:layout_height="110dp"
+		android:layout_below="@id/listContainer"
+		android:background="#111111"/>
+</RelativeLayout>

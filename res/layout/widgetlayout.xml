@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <ImageView
+        android:contentDescription="@null"
+		     android:id="@+id/wi_icon"
+             android:layout_width="48dp"
+             android:layout_height="48dp"
+             
+             android:background="@drawable/musicdisk"
+			android:layout_alignParentLeft="true"
+			android:layout_alignParentTop="true"/>
+		<TextView 
+			android:layout_width="80dp"
+			android:layout_height="20dp"
+			android:id="@+id/wi_name"
+			android:textColor="#2E64FE" 
+            android:layout_toRightOf="@id/wi_icon"/> 
+		<TextView
+			android:layout_width="48dp"
+			android:layout_height="20dp"
+			android:id="@+id/wi_artist"
+			android:textColor="#2E64FE" 
+			android:layout_below="@id/wi_name"
+			android:layout_toRightOf="@id/wi_icon"/>    
+        <ImageView
+            android:contentDescription="@null"
+             android:id="@+id/wi_pre"
+             android:layout_width="48dp"
+             android:layout_height="48dp"
+             android:background="@drawable/pre"
+             android:layout_toRightOf="@id/wi_name"/> 
+
+         <ImageView
+             android:contentDescription="@null"
+             android:id="@+id/wi_play"
+             android:layout_width="48dp"
+             android:layout_height="48dp"
+             android:textOff=""
+			 android:textOn=""
+             android:background="@drawable/play"
+             android:layout_toRightOf="@id/wi_pre"/> 
+
+
+         <ImageView
+             android:contentDescription="@null"
+             android:id="@+id/wi_next"
+             android:layout_width="48dp"
+             android:layout_height="48dp"
+             android:background="@drawable/next" 
+             android:layout_toRightOf="@id/wi_play"/>
+         
+         <ProgressBar
+			android:max="100"
+			android:layout_width="fill_parent"
+			android:layout_height="5dp"	
+			android:id="@+id/wi_progress"
+			style="@android:style/Widget.ProgressBar.Horizontal"
+			android:layout_below="@id/wi_icon"/>
+
+</RelativeLayout>
