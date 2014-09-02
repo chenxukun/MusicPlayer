@@ -1,14 +1,10 @@
 package xukun.augest16;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import xukun.augest16.R;
 import android.app.Activity;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
+import android.app.SearchManager;
 import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -16,21 +12,23 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.widget.RemoteViews;
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.widget.SearchView;
 
 public class MainActivity extends FragmentActivity implements
 		playFragment.Callbacks, MusicDB.Callbacks, playListFragment.Callbacks,
 		menuFragment.Callbacks{
 	public MusicDB musicdb;
-	//List<Map<String, String>> listItems;
 	Handler handler;
 	boolean active = false;
 	musicService.MusicBinder binder;
 	Activity self;
 	playFragment fragment;
-	menuFragment menu;
+	//menuFragment menu;
 	playListFragment listfragment;
 	ServiceConnection conn = new ServiceConnection() {
 
@@ -39,9 +37,9 @@ public class MainActivity extends FragmentActivity implements
 			binder = (musicService.MusicBinder) service;
 			binder.setUIInitialDB(self);
 			musicdb = binder.getMusicDB();
-			menu = new menuFragment();
-			getSupportFragmentManager().beginTransaction()
-				.replace(R.id.menuContainer, menu).commit();
+			// = new menuFragment();
+			//getSupportFragmentManager().beginTransaction()
+			//	.replace(R.id.menuContainer, menu).commit();
 			listfragment = new playListFragment();
 			getSupportFragmentManager().beginTransaction()
 					.replace(R.id.listContainer, listfragment).commit();
@@ -57,6 +55,33 @@ public class MainActivity extends FragmentActivity implements
 		}
 
 	};
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu){
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.mainmenu,menu);
+		MenuItem searchItem = menu.findItem(R.id.search);
+		SearchView searchView = (SearchView) searchItem.getActionView();
+		SearchManager searchManager=(SearchManager)getSystemService(this.SEARCH_SERVICE);
+		//searchView.setIconifiedByDefault(true);
+		//searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+		//getActionBar().setDisplayShowTitleEnabled(false);
+		//getActionBar().setDisplayHomeAsUpEnabled(true);
+		return super.onCreateOptionsMenu(menu);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item){
+		switch(item.getItemId()){
+		case R.id.scan:
+			scanPhone();
+			return true;
+		//case R.id.search:
+		//	return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

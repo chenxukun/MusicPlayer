@@ -30,8 +30,8 @@
     
     <Button
         android:background="@drawable/video"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:id="@+id/video"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"/>

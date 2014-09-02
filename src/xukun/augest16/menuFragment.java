@@ -37,7 +37,7 @@ public class menuFragment extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.menulayout, container, false);
+		/*view = inflater.inflate(R.layout.menulayout, container, false);
 		scan = (Button) view.findViewById(R.id.scan);
 		search = (Button) view.findViewById(R.id.search);
 		recom = (Button) view.findViewById(R.id.recom);
@@ -50,7 +50,8 @@ public class menuFragment extends Fragment{
 				
 			}
 		});
-		return view;
+		return view;*/
+		return null;
 	}
 
 }

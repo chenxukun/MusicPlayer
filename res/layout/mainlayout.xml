@@ -7,18 +7,11 @@
     tools:context="xukun.augest16.MainActivity"
     tools:ignore="MergeRootFrame">
     
-
-        <FrameLayout
-		android:id="@+id/menuContainer"
-		android:layout_width="match_parent"
-		android:layout_height="50dp"
-		android:background="#666666"/>
         
     	<FrameLayout
 		android:id="@+id/listContainer"
 		android:layout_width="match_parent"
-		android:layout_height="380dp"
-		android:layout_below="@id/menuContainer"
+		android:layout_height="400dp"
 		android:background="#66b2ff"/>
     	
     	<FrameLayout
