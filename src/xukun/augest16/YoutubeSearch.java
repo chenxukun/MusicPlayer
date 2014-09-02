@@ -135,7 +135,7 @@ public class YoutubeSearch extends
 	
 	@Override
 	protected void onPreExecute(){
-		diag = ProgressDialog.show(ctx,"Please wait ...","Scanning Phone...", true);
+		diag = ProgressDialog.show(ctx,"Please wait ...","Seaching youtube...", true);
 		diag.setCancelable(false);
 	}
 }

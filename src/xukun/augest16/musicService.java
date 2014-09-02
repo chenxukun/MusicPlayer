@@ -12,12 +12,17 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.media.AudioManager;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.widget.RemoteViews;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class musicService extends Service implements MusicDB.Callbacks{
 	public class MusicBinder extends Binder{
@@ -56,11 +61,41 @@ public class musicService extends Service implements MusicDB.Callbacks{
 	private NotificationManager nm;
 	private int notificationID = 1;
 	private MusicBinder binder = new MusicBinder();
-	
+	private SensorManager sensor;
+	private float mAccel; // acceleration apart from gravity
+	private float mAccelCurrent; // current acceleration including gravity
+	private float mAccelLast; // last acceleration including gravity
 	RemoteViews rv;
 	Notification notify;
 	Notification.Builder builder;
 
+	private SensorEventListener mSensorListener = new SensorEventListener(){
+
+		@Override
+		public void onSensorChanged(SensorEvent event) {
+		      float x = event.values[0];
+		      float y = event.values[1];
+		      float z = event.values[2];
+		      mAccelLast = mAccelCurrent;
+		      mAccelCurrent = (float) Math.sqrt((double) (x*x + y*y + z*z));
+		      float delta = mAccelCurrent - mAccelLast;
+		      mAccel = mAccel * 0.9f + delta; // perform low-cut filter
+		      if (mAccel > 12) {
+		    	    //Toast toast = Toast.makeText(getApplicationContext(), "Device has shaken.", Toast.LENGTH_LONG);
+		    	    //toast.show();
+		    	    if(!musicdb.getPause())
+		    	    	musicdb.startPlay(musicdb.next());
+		    	}
+		      
+		}
+
+		@Override
+		public void onAccuracyChanged(Sensor sensor, int accuracy) {
+			
+		}
+		
+	};
+	
 	@Override
 	public IBinder onBind(Intent intent) {
 
@@ -71,11 +106,16 @@ public class musicService extends Service implements MusicDB.Callbacks{
 		self = this;
 		musicList = new LinkedList<Map<String,String>>();
 		nm = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
-		
+	    sensor = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+	    sensor.registerListener(mSensorListener, sensor.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+	    mAccel = 0.00f;
+	    mAccelCurrent = SensorManager.GRAVITY_EARTH;
+	    mAccelLast = SensorManager.GRAVITY_EARTH;
 	}
 	@Override
 	public void onDestroy(){
 		nm.cancel(notificationID);
+		sensor.unregisterListener(mSensorListener);
 	}
 	private void showNotification(){
 		

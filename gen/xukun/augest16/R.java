@@ -8,6 +8,10 @@
 package xukun.augest16;
 
 public final class R {
+    public static final class anim {
+        public static final int slideinleft=0x7f040000;
+        public static final int slideoutleft=0x7f040001;
+    }
     public static final class attr {
     }
     public static final class drawable {
@@ -27,44 +31,44 @@ public final class R {
         public static final int video=0x7f02000d;
     }
     public static final class id {
-        public static final int artist=0x7f070001;
-        public static final int container=0x7f070004;
-        public static final int duration=0x7f070002;
-        public static final int listContainer=0x7f070006;
-        public static final int menuContainer=0x7f070005;
-        public static final int nextSong=0x7f070016;
-        public static final int no_artist=0x7f07000e;
-        public static final int no_icon=0x7f07000c;
-        public static final int no_name=0x7f07000d;
-        public static final int no_next=0x7f070011;
-        public static final int no_play=0x7f070010;
-        public static final int no_pre=0x7f07000f;
-        public static final int pauseResume=0x7f070015;
-        public static final int playContainer=0x7f070007;
-        public static final int playmode=0x7f070017;
-        public static final int preSong=0x7f070014;
-        public static final int progress=0x7f070018;
-        public static final int recom=0x7f07000a;
-        public static final int scan=0x7f070008;
-        public static final int search=0x7f070009;
-        public static final int setting=0x7f07000b;
-        public static final int songIcon=0x7f070012;
-        public static final int songName=0x7f070013;
-        public static final int title=0x7f070000;
-        public static final int vduration=0x7f07001c;
-        public static final int video=0x7f070003;
-        public static final int view=0x7f07001d;
-        public static final int vowner=0x7f07001b;
-        public static final int vthumb=0x7f070019;
-        public static final int vtitle=0x7f07001a;
-        public static final int wi_artist=0x7f070021;
-        public static final int wi_icon=0x7f07001f;
-        public static final int wi_name=0x7f070020;
-        public static final int wi_next=0x7f070024;
-        public static final int wi_play=0x7f070023;
-        public static final int wi_pre=0x7f070022;
-        public static final int wi_progress=0x7f070025;
-        public static final int youtubeplayerview=0x7f07001e;
+        public static final int artist=0x7f080001;
+        public static final int container=0x7f080004;
+        public static final int duration=0x7f080002;
+        public static final int listContainer=0x7f080006;
+        public static final int menuContainer=0x7f080005;
+        public static final int nextSong=0x7f080016;
+        public static final int no_artist=0x7f08000e;
+        public static final int no_icon=0x7f08000c;
+        public static final int no_name=0x7f08000d;
+        public static final int no_next=0x7f080011;
+        public static final int no_play=0x7f080010;
+        public static final int no_pre=0x7f08000f;
+        public static final int pauseResume=0x7f080015;
+        public static final int playContainer=0x7f080007;
+        public static final int playmode=0x7f080017;
+        public static final int preSong=0x7f080014;
+        public static final int progress=0x7f080018;
+        public static final int recom=0x7f08000a;
+        public static final int scan=0x7f080008;
+        public static final int search=0x7f080009;
+        public static final int setting=0x7f08000b;
+        public static final int songIcon=0x7f080012;
+        public static final int songName=0x7f080013;
+        public static final int title=0x7f080000;
+        public static final int vduration=0x7f08001c;
+        public static final int video=0x7f080003;
+        public static final int view=0x7f08001d;
+        public static final int vowner=0x7f08001b;
+        public static final int vthumb=0x7f080019;
+        public static final int vtitle=0x7f08001a;
+        public static final int wi_artist=0x7f080021;
+        public static final int wi_icon=0x7f08001f;
+        public static final int wi_name=0x7f080020;
+        public static final int wi_next=0x7f080024;
+        public static final int wi_play=0x7f080023;
+        public static final int wi_pre=0x7f080022;
+        public static final int wi_progress=0x7f080025;
+        public static final int youtubeplayerview=0x7f08001e;
     }
     public static final class layout {
         public static final int listitemlayout=0x7f030000;
@@ -77,8 +81,8 @@ public final class R {
         public static final int widgetlayout=0x7f030007;
     }
     public static final class string {
-        public static final int app_name=0x7f050000;
-        public static final int youtube_key=0x7f050001;
+        public static final int app_name=0x7f060000;
+        public static final int youtube_key=0x7f060001;
     }
     public static final class style {
         /** 
@@ -102,13 +106,13 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
     }
     public static final class xml {
-        public static final int appwidget_provider=0x7f040000;
+        public static final int appwidget_provider=0x7f050000;
     }
 }

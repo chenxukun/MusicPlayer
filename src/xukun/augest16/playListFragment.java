@@ -41,6 +41,7 @@ public class playListFragment extends ListFragment{
 			intent.putExtras(data);
 			//intent.setAction("xukun.augest16.searchVideo");
 			startActivity(intent);
+			getActivity().overridePendingTransition( R.anim.slideinleft, R.anim.slideoutleft );
 		}
 		
 	};
@@ -67,12 +68,6 @@ public class playListFragment extends ListFragment{
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		/*Map<String, String>song = new HashMap<String, String>();
-		song.put("title","中文");
-		song.put("artist","1");
-		song.put("duration","1");
-		song.put("path","1");
-		cb.getMusicList().add(song);*/
 		List<Map<String,String>> s= cb.getMusicDB().reconstructList();
 		if(s==null){
 			//cb.getMusicDB().scanPhone(cb.getMusicList());
